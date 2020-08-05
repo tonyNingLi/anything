@@ -1,0 +1,122 @@
+*,
+*:before,
+*:after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+html body {
+  height: 100%;
+  width: 100%;
+}
+
+html body .wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url("../images/jsdd-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}
+
+html body .wrap .frameBox {
+  position: absolute;
+  background-image: url("../images/jsdd-kuang.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 180px;
+  width: 260px;
+}
+html body .wrap .titles {/*即时调度标题*/
+  top: 100rem;
+  left: 450rem;
+  font-size: 30px;
+  font-style: normal;
+  color: white;
+  font-weight: bold;
+}
+
+html body .wrap .frameBox1 {/*窗口1,按高度从左边开始，按顺序排序*/
+  top: 10%;
+  left: 16%;
+}
+
+html body .wrap .frameBox2 {/*窗口2*/
+  top: 18%;
+  left: 2%;
+}
+
+html body .wrap .frameBox3 {
+  top: 30%;
+  left: 17%;
+}
+
+html body .wrap .frameBox4 {
+  top: 43%;
+  left: 3%;
+}
+
+html body .wrap .frameBox5 {
+  top: 50%;
+  left: 20%;
+}
+
+html body .wrap .frameBox6 {
+  top: 68%;
+  left: 7%;
+}
+
+html body .wrap .frameBox7 {
+  top: 70%;
+  left: 26%;
+}
+
+html body .wrap .frameBox8 {
+  top: 10%;
+  right: 17%;
+}
+
+html body .wrap .frameBox9 {
+  top: 18%;
+  right: 3%;
+}
+
+html body .wrap .frameBox10 {
+  top: 30%;
+  right: 18%;
+}
+
+html body .wrap .frameBox11 {
+  top: 43%;
+  right: 4%;
+}
+
+html body .wrap .frameBox12 {
+  top: 50%;
+  right: 21%;
+}
+
+html body .wrap .frameBox13 {
+  top: 68%;
+  right: 7%;
+}
+
+html body .wrap .frameBox14 {
+  top: 70%;
+  right: 27%;
+}
+html body .wrap .frameBox15 {/*中间圈*/
+  position: absolute;
+  background-image: url("../images/pengyouquan.png");
+  background-repeat: no-repeat;
+  background-size: 40% 95%;
+  height: 180px;
+  width: 260px;
+  top: 37.7%;
+  left: 46.45%;  
+}

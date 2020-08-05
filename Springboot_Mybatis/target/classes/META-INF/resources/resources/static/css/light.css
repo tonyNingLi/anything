@@ -1,0 +1,37 @@
+@keyframes flash_light {
+    0% {
+        height: 0px;
+        opacity: 0.5;
+    }
+    30% {
+        height: 1693px;
+    }
+    24%, 36%, 48% {
+        opacity: 0.5;
+    }
+    30%,  42% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.light{
+    width: 151px;
+    height: 1693px;
+    animation: flash_light 3s infinite;
+    position: absolute;
+    overflow: hidden;
+}
+.light1{
+    left: 56px;
+    top: 260px;
+}
+.light2{
+    right: 56px;
+    top: 260px;
+    animation-delay: 0.3s;
+}

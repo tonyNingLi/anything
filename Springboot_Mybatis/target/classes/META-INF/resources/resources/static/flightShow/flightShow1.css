@@ -1,0 +1,60 @@
+.flightShow{
+    height: 480px;
+    overflow: hidden;
+}
+.flightShow .trBody{
+    transform-style: preserve-3d;
+    perspective: 500;
+    -webkit-perspective: 500;
+}
+.flightShow .li{
+    height: 84px;
+    line-height: 84px;
+    background: #132430;
+    transition: 0.15s;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 25px;
+    width: 100%;
+    margin-top: 12px;
+}
+.flightShow .li.bg{
+    background: #0b4d58;
+}
+.flightShow .rotateX.li{
+    transform: rotateX(180deg);
+    background: #132430!important;
+    color: #132430!important;
+}
+.flightShow .rotateX.li.bg{
+    transform: rotateX(180deg);
+    background: #0b4d58!important;
+    color: #0b4d58!important;
+}
+.flightShow .delay1, .flightShow .delay1 div{
+    transition-delay: 0s;
+}
+.flightShow .delay2, .flightShow .delay2 div{
+    transition-delay: 0.15s;
+}
+.flightShow .delay3, .flightShow .delay3 div{
+    transition-delay: 0.3s;
+}
+.flightShow .delay4, .flightShow .delay4 div{
+    transition-delay: 0.45s;
+}
+.flightShow .delay5, .flightShow .delay5 div{
+    transition-delay: 0.6s;
+}
+.flightShow .delay6, .flightShow .delay6 div{
+    transition-delay: 0.75s;
+}
+.flightShowBlock .li div{
+    transition: all 0.15s;
+}
+.flightShowBlock .rotateX.li.bg *{
+    color: #0b4d58!important;
+}
+.flightShowBlock .rotateX.li *{
+    color: #132430!important;
+}

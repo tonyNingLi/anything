@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="GetTodoNumWebserviceImpService" targetNamespace="http://spring.service.getinfows.todoo.kmss.landray.com/" xmlns:ns1="http://service.getinfows.todoo.kmss.landray.com/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring.service.getinfows.todoo.kmss.landray.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://156.8.11.13:6888/sys/webservice/getTodoNumWebservice?wsdl=IGetTodoNumWebservice.wsdl" namespace="http://service.getinfows.todoo.kmss.landray.com/">
+    </wsdl:import>
+  <wsdl:binding name="GetTodoNumWebserviceImpServiceSoapBinding" type="ns1:IGetTodoNumWebservice">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getTodoOthers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTodoOthers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTodoOthersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoneSupervise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDoneSupervise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDoneSuperviseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTodoImissive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTodoImissive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTodoImissiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoneImissive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDoneImissive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDoneImissiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTodoSupervise">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTodoSupervise">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTodoSuperviseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAlarmTodo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setAlarmTodo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setAlarmTodoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoneOthers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDoneOthers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDoneOthersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetTodoNumWebserviceImpService">
+    <wsdl:port binding="tns:GetTodoNumWebserviceImpServiceSoapBinding" name="GetTodoNumWebserviceImpPort">
+      <soap:address location="http://156.8.11.13:6888/sys/webservice/getTodoNumWebservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

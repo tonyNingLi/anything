@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.test03.UpsMapper">
+
+    <select id="selectupsinfo" resultType="java.util.Map">
+--         select
+--           insid,jfid,devid,insname,hvalue,varid,insunit
+--           from
+--             JfDevIns
+--           where
+--             devid = 411 and varid in ('AU129','AU132','AUZ111','AU130')
+select insid,jfid,devid,insname,hvalue,varid,insunit from JfDevins where devid =411 and varid in ('AU129','AU132','AUZ111','AU130')
+UNION ALL
+select insid,jfid,devid,insname,hvalue,varid,insunit from JfDevIns where devid = 412 and varid in ('AU229','AU232','AUZ211','AU230')
+    </select>
+
+    <select id="selectsmjfwsd" resultType="java.util.Map">
+        select
+        insid,jfid,devid,insname,hvalue,varid,insunit
+        from
+        JfDevIns
+        where
+        devid = 364 and varid in ('ATXW07','AWSD071','AWSD072')
+    </select>
+
+    <select id="selectDhInfoList" resultType="java.util.Map">
+        SELECT
+            insid,
+            jfid,
+            devid,
+            insname,
+            varid,
+            ISNULL(insunit, '') AS insunit,
+            ISNULL(hvalue, '') AS hvalue,
+            ISNULL(hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns
+    </select>
+    <!--selectDhInfoListByParam-->
+    <select id="selectDhInfoListByParam" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        *
+        <!--insid,
+        jfid,
+        devid,
+        insname,
+        varid,
+        ISNULL(insunit, '') AS insunit,
+        ISNULL(hvalue, '') AS hvalue,
+        ISNULL(hvaluen, '') AS hvaluen-->
+    FROM
+    JfDevIns
+    <where>
+        <if test="devid !=null and devid !=''">
+            devid = #{devid}
+        </if>
+        <if test="insid !=null and insid !=''">
+            and insid = #{insid}
+        </if>
+        <if test="varid !=null and varid !=''">
+            and varid = #{varid}
+        </if>
+    </where>
+
+</select>
+<!--动环警告带参-->
+    <select id="DhJgInfoList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        b.*, a.varid
+        FROM
+        JfDevIns a
+        RIGHT JOIN alarmevent b ON a.insid = b.insid
+        <where>
+            <if test="devid !=null and devid !=''">
+                b.devid = #{devid}
+            </if>
+            <if test="insid !=null and insid !=''">
+                and b.insid = #{insid}
+            </if>
+            <if test="varid !=null and varid !=''">
+                and a.varid = #{varid}
+            </if>
+        </where>
+
+    </select>
+
+
+    <select id="selectDhInfoList415" resultType="java.util.Map">
+    SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+    FROM
+        JfDevIns a
+    INNER JOIN JfDevice b ON a.devid = b.devid
+    WHERE
+        a.devid = 415
+    AND a.varid IN ('TXW07', 'WSD071', 'WSD072')
+    ORDER BY a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListtwo" resultType="java.util.Map">
+       SELECT
+            a.insid,
+            b.devname,
+            a.jfid,
+            a.devid,
+            a.insname,
+            a.varid,
+            ISNULL(a.insunit, '') AS insunit,
+            ISNULL(a.hvalue, '') AS hvalue,
+            ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+            a.devid = 415
+        AND a.varid IN ('TXW08', 'WSD081', 'WSD082')
+        ORDER BY
+            a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListthree" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 415
+        AND a.varid IN ('TXW09', 'WSD091', 'WSD092')
+        ORDER BY
+        a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListfour" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 415
+        AND a.varid IN ('TXW10', 'WSD101', 'WSD102')
+        ORDER BY
+        a.insid ASC
+    </select>
+    <!--烟感数据推送-->
+    <select id="selectDhInfoListfive" resultType="java.util.Map">
+        SELECT
+            a.insid,
+            b.devname,
+            a.jfid,
+            a.devid,
+            a.insname,
+            a.varid,
+            ISNULL(a.insunit, '') AS insunit,
+            ISNULL(a.hvalue, '') AS hvalue,
+            ISNULL(a.hvaluen, '') AS hvaluen
+            FROM
+            JfDevIns a
+            INNER JOIN JfDevice b ON a.devid = b.devid
+            WHERE
+            a.devid = 417
+            AND a.varid IN ('XF02')
+            ORDER BY
+            a.insid ASC
+    </select>
+    <!--屏蔽机房烟感数据推送查询-->
+    <select id="selectPingBiYanGanMessage" resultType="java.util.Map">
+        SELECT
+            a.insid,
+            b.devname,
+            a.jfid,
+            a.devid,
+            a.insname,
+            a.varid,
+            ISNULL(a.insunit, '') AS insunit,
+            ISNULL(a.hvalue, '') AS hvalue,
+            ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+            a.devid = 389
+        AND a.varid IN ('AXF01')
+        ORDER BY
+            a.insid ASC
+    </select>
+    <!--空调一 413-->
+    <select id="SendKongTiao1Message" resultType="java.util.Map">
+                SELECT
+                a.insid,
+                b.devname,
+                a.jfid,
+                a.devid,
+                a.insname,
+                a.varid,
+                ISNULL(a.insunit, '') AS insunit,
+                ISNULL(a.hvalue, '') AS hvalue,
+                ISNULL(a.hvaluen, '') AS hvaluen
+                FROM
+                JfDevIns a
+                INNER JOIN JfDevice b ON a.devid = b.devid
+                WHERE
+                a.devid = 413
+                ORDER BY
+                a.insid ASC
+    </select>
+    <!--空调二   414-->
+    <select id="SendKongTiao2Message" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 414
+        ORDER BY
+        a.insid ASC
+    </select>
+    <!--漏水数据推送SendLoushuiMessage-->
+    <select id="SendLoushuiMessage" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 416
+        AND a.varid IN ('LS04')
+        ORDER BY
+        a.insid ASC
+    </select>
+    <!--屏蔽机房漏水信息推送 目前空调数为6个-->
+    <select id="PingBiLoushuiMessage" resultType="java.util.Map">
+        SELECT
+            a.insid,
+            b.devname,
+            a.jfid,
+            a.devid,
+            a.insname,
+            a.varid,
+            ISNULL(a.insunit, '') AS insunit,
+            ISNULL(a.hvalue, '') AS hvalue,
+            ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+            a.devid = 391
+        ORDER BY
+            a.insid ASC
+    </select>
+    <!--PeiDianShiLoushuiMessage-->
+    <select id="PeiDianShiLoushuiMessage" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 392
+        ORDER BY
+        a.insid ASC
+    </select>
+
+    <select id="test" parameterType="map" resultType="java.util.Map">
+        select name as p1 from bc_user
+    </select>
+
+    <!--升级之前往oa推送告警信息的方法-->
+    <select id="SendMessageForParamUpgrade" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.alarm, '') AS alarm,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        myserver.dbo.JfDevIns a
+        INNER JOIN myserver.dbo.JfDevice b ON a.devid = b.devid
+        <where>
+            <if test="devid !=null">
+                AND a.devid = #{devid}
+            </if>
+            <if test="str == '1'.toString()"><!--417 -->
+                AND a.varid IN ('XF02')
+            </if>
+            <if test="str == '2'.toString()"><!-- 416-->
+                AND a.varid IN ('LS04')
+            </if>
+            <if test="str == '3'.toString()"><!-- 389-->
+                AND a.varid IN ('AXF01')
+            </if>
+            <if test="str == '4'.toString()"><!-- 391-->
+                AND 1=1
+            </if>
+            <if test="str == '5'.toString()"><!-- 1392-->
+                AND 1=1
+            </if>
+            <if test="str == '6'.toString()"><!-- 1  屏蔽机房温湿度 364-->
+                AND a.varid IN ('ATXW01','AWSD011','AWSD012')
+            </if>
+            <if test="str == '7'.toString()"><!-- 2  屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW02','AWSD021','AWSD022')
+            </if>
+            <if test="str == '8'.toString()"><!-- 3 屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW03','AWSD031','AWSD032')
+            </if>
+            <if test="str == '9'.toString()"><!-- 4 屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW04','AWSD041','AWSD042')
+            </if>
+            <if test="str == '10'.toString()"><!-- 5 屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW05','AWSD051','AWSD052')
+            </if>
+            <if test="str == '11'.toString()"><!-- 6 屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW06','AWSD061','AWSD062')
+            </if>
+            <if test="str == '12'.toString()"><!-- 7 屏蔽机房温湿度364-->
+                AND a.varid IN ('ATXW07','AWSD071','AWSD072')
+            </if>
+            <if test="str == '13'.toString()"><!-- 8 屏蔽机房温湿度388-->
+                AND a.varid IN ('ATXW08','AWSD081','AWSD082')
+            </if>
+            <if test="str == '14'.toString()"><!-- 9  屏蔽机房温湿度388-->
+                AND a.varid IN ('ATXW09','AWSD091','AWSD092')
+            </if>
+            <if test="str == '15'.toString()"><!-- 10  屏蔽机房温湿度388-->
+                AND a.varid IN ('ATXW10','AWSD101','AWSD102')
+            </if>
+            <if test="str == '16'.toString()"><!-- 11  屏蔽机房温湿度388-->
+                AND a.varid IN ('ATXW11','AWSD111','AWSD112')
+            </if>
+            <if test="str == '17'.toString()"><!-- 12 档案室温湿度 415 -->
+                AND a.varid IN ('TXW07','WSD071','WSD072')
+            </if>
+            <if test="str == '18'.toString()"><!-- 13 档案室温湿度 415-->
+                AND a.varid IN ('TXW08','WSD081','WSD082')
+            </if>
+            <if test="str == '19'.toString()"><!-- 14 档案室温湿度 415-->
+                AND a.varid IN ('TXW09','WSD091','WSD092')
+            </if>
+            <if test="str == '20'.toString()"><!-- 15 档案室温湿度 415-->
+                AND a.varid IN ('TXW10','WSD101','WSD102')
+            </if>
+        </where>
+        ORDER BY a.insid ASC
+    </select>
+
+</mapper>
