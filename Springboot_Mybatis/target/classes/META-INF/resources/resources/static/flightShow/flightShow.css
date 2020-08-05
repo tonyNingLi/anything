@@ -1,0 +1,98 @@
+.flightShow{
+    height: 480px;
+    overflow: hidden;
+}
+.flightShow .li{
+    height: 84px;
+    margin-top: 12px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    -webkit-perspective: 500;
+}
+.flightShow .li .in{
+    line-height: 84px;
+    background: #132430;
+    transition: 0.15s;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 25px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.flightShow .li.bg .in{
+    background: #0b4d58;
+}
+
+/* 第一种翻牌 */
+/*
+.flightShow .rotateX .in{
+    transform: rotateX(180deg);
+    background: #132430!important;
+    color: #132430!important;
+    opacity: 0;
+}
+.flightShow .rotateX.bg .in{
+    transform: rotateX(180deg);
+    background: #0b4d58!important;
+    color: #0b4d58!important;
+    opacity: 0;
+}
+.flightShow .delay1 .in{
+    transition-delay: 0s;
+}
+.flightShow .delay2 .in{
+    transition-delay: 0.15s;
+}
+.flightShow .delay3 .in{
+    transition-delay: 0.3s;
+}
+.flightShow .delay4 .in{
+    transition-delay: 0.45s;
+}
+.flightShow .delay5 .in{
+    transition-delay: 0.6s;
+}
+.flightShow .delay6 .in{
+    transition-delay: 0.75s;
+}
+*/
+
+/* 第二种翻牌 */
+.flightShow .rotateX .in{
+    transform: rotateX(180deg) translateZ(0);
+    background: #132430!important;
+    color: #132430!important;
+}
+.flightShow .rotateX.bg .in{
+    transform: rotateX(180deg) translateZ(0);
+    background: #0b4d58!important;
+    color: #0b4d58!important;
+}
+.flightShow .delay1 .in, .flightShow .delay1 .in *{
+    transition-delay: 0s;
+}
+.flightShow .delay2 .in, .flightShow .delay2 .in *{
+    transition-delay: 0.15s;
+}
+.flightShow .delay3 .in, .flightShow .delay3 .in *{
+    transition-delay: 0.3s;
+}
+.flightShow .delay4 .in, .flightShow .delay4 .in *{
+    transition-delay: 0.45s;
+}
+.flightShow .delay5 .in, .flightShow .delay5 .in *{
+    transition-delay: 0.6s;
+}
+.flightShow .delay6 .in, .flightShow .delay6 .in *{
+    transition-delay: 0.75s;
+}
+.flightShowBlock .in *{
+    transition: 0.15s;
+}
+.flightShowBlock .rotateX.bg .in *{
+    color: #0b4d58!important;
+}
+.flightShowBlock .rotateX .in *{
+    color: #132430!important;
+}

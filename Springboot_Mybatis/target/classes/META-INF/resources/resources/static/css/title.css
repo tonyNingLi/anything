@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+.mainTitle{
+    padding-right: 70px;
+    padding-top: 15px;
+}
+:root {
+  --font-size: 5.4;
+  --border-width: 4;
+  --text: #ffffff;
+  --border: #be90d4;
+  --color-one: #40d1ff;
+  --color-two: #40d1ff;
+  --color-three: #40d1ff;
+  --color-four: #40d1ff;
+}
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(15, calc(var(--font-size) * 1.25rem));
+  position: relative;
+}
+.showcase__text {
+  color: var(--text);
+  font-size: calc(var(--font-size) * 1rem);
+  grid-row: 2;
+  line-height: calc(var(--font-size) * 1.25rem);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 3;
+}
+.showcase__text .word {
+  display: grid;
+  grid-gap: 0 calc(var(--border-width) * 1px);
+  grid-template-columns: repeat(15, calc((var(--font-size) * 1.25rem) - calc(var(--border-width) * 1px)));
+  padding: 0 2px;
+}
+.showcase__text .char {
+  -webkit-animation-delay: calc(((var(--char-index) + 1) * var(--step)) * 1s);
+          animation-delay: calc(((var(--char-index) + 1) * var(--step)) * 1s);
+  -webkit-animation-duration: calc(var(--duration) * 1s);
+          animation-duration: calc(var(--duration) * 1s);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  text-shadow: 0 4px 0 #000;
+}
+.text-gradient {  
+    display: inline-block;
+    font-family: '微软雅黑';
+    font-size: 10em;
+    position: relative; 
+}  
+   
+.text-gradient[data-text]::after {  
+    content: attr(data-text);  
+    color: green;  
+    position: absolute;  
+    left: 0;  
+    z-index: 2;
+    -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff0000), to(rgba(0, 0, 255, 0)));
+}
+.showcase__text .char:nth-of-type(n) {
+  --color: var(--color-one);
+}
+.showcase__text .char:nth-of-type(2n) {
+  --color: var(--color-two);
+}
+.showcase__text .char:nth-of-type(3n) {
+  --color: var(--color-three);
+}
+.showcase__text .char:nth-of-type(4n) {
+  --color: var(--color-four);
+}
+@-webkit-keyframes flash {
+  0%, 30%, 50%, 100% {
+    background: #000;
+  }
+  40% {
+    background: var(--color);
+    -webkit-filter: drop-shadow(0 0 calc(var(--font-size) * 1rem) var(--color)) blur(2px) brightness(5);
+            filter: drop-shadow(0 0 calc(var(--font-size) * 1rem) var(--color)) blur(2px) brightness(5);
+  }
+}
+
+@keyframes flash {
+  0%, 30%, 50%, 100% {
+    background: none;
+  }
+  40% {
+    background: none;
+      -webkit-filter: drop-shadow(0 0 calc(var(--font-size) * 0.6rem) var(--color)) blur(2px) brightness(3);
+            filter: drop-shadow(0 0 calc(var(--font-size) * 0.6rem) var(--color)) blur(2px) brightness(3);
+/*
+    -webkit-filter: drop-shadow(0 0 calc(var(--font-size) * 1rem) var(--color)) blur(2px) brightness(3);
+            filter: drop-shadow(0 0 calc(var(--font-size) * 1rem) var(--color)) blur(2px) brightness(3);
+*/
+  }
+}
+

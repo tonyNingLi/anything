@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.test04.PostgreMapper">
+
+    <!--统计在线离线故障数量-->
+    <select id="getDate"  resultType="java.util.Map">
+        SELECT
+        SUM (
+        CASE
+        WHEN "T_LinkState"."State" = '在线' THEN
+        1
+        ELSE
+        0
+        END
+        ) AS online,
+        SUM (
+        CASE
+        WHEN "T_LinkState"."State" = '离线' THEN
+        1
+        ELSE
+        0
+        END
+        ) AS offline,
+        SUM (
+        CASE
+        WHEN "T_LinkState"."State" = '故障' THEN
+        1
+        ELSE
+        0
+        END
+        ) AS fault
+        FROM
+        "T_LinkState";
+
+
+    </select>
+
+
+
+
+</mapper>

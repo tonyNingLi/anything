@@ -65,7 +65,7 @@ public class IndexController {
     //1022新增
     @RequestMapping("map")
     public String map() {
-        System.out.println("appkey_:");
+        System.out.println("111appkey_:");
         return "map";
     }
     @RequestMapping("index1")
