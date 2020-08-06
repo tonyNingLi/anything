@@ -13,7 +13,7 @@
             background-color:#fef9ff;
             box-shadow: 10px 10px 5px #888888;
         }
-        .son {0
+        .son {
             margin: auto;
         }</style>
 
