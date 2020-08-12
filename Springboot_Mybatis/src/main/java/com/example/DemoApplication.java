@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.example.mapper") //扫描的mapper111
+@MapperScan("com.example.mapper") //扫描的mapper111222
 @SpringBootApplication
 public class DemoApplication {
 
